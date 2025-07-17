@@ -10,22 +10,6 @@
 - **GitHub Actions** — CI-пайплайн: проверка, сборка 
 - **act** — локальное тестирование GitHub Actions 
 
---- 
-
-## Структура проекта
-ci-cd-demo/
-├──app/ 
-│   ├──app.py              # Flask-приложение
-│   └──requirements.txt    # Зависимости
-├──Dockerfile              # Инструкция сборки контейнера
-├──docker-compose.yml      # Локальный запуск
-├──.dockerignore           # Исключения из сборки
-├──.gitignore              # Исключения для Git
-├──.github/
-│   └──workflows/
-│       └──ci.yml          # CI/CD конфигурация
-├──README.md
-
 ---
 
 ## Локальный запуск
