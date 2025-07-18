@@ -49,12 +49,56 @@
   ],
   "panels": [
     {
+      "datasource": {
+        "type": "loki",
+        "uid": "aesb8u8cmw6psf"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 56,
+      "options": {
+        "dedupStrategy": "none",
+        "enableInfiniteScrolling": false,
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "12.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "aesb8u8cmw6psf"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"docker\"} |= ``",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Log",
+      "type": "logs"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 41,
       "panels": [],
@@ -525,7 +569,7 @@
         "h": 6,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 9
       },
       "id": 45,
       "options": {
@@ -744,7 +788,7 @@
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 7
+        "y": 15
       },
       "id": 47,
       "options": {
@@ -936,7 +980,7 @@
         "h": 6,
         "w": 5,
         "x": 5,
-        "y": 7
+        "y": 15
       },
       "id": 49,
       "options": {
@@ -1039,7 +1083,7 @@
         "h": 6,
         "w": 5,
         "x": 10,
-        "y": 7
+        "y": 15
       },
       "id": 53,
       "options": {
@@ -1195,7 +1239,7 @@
         "h": 6,
         "w": 5,
         "x": 15,
-        "y": 7
+        "y": 15
       },
       "id": 51,
       "options": {
@@ -1351,7 +1395,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 7
+        "y": 15
       },
       "id": 55,
       "options": {
@@ -1448,7 +1492,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 21
       },
       "id": 43,
       "panels": [],
@@ -1498,7 +1542,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 14
+        "y": 22
       },
       "id": 33,
       "maxDataPoints": 100,
@@ -1581,7 +1625,7 @@
         "h": 3,
         "w": 2,
         "x": 2,
-        "y": 14
+        "y": 22
       },
       "id": 19,
       "maxDataPoints": 100,
@@ -1655,7 +1699,7 @@
         "h": 6,
         "w": 6,
         "x": 4,
-        "y": 14
+        "y": 22
       },
       "id": 23,
       "options": {
@@ -1795,7 +1839,7 @@
         "h": 6,
         "w": 7,
         "x": 10,
-        "y": 14
+        "y": 22
       },
       "id": 7,
       "options": {
@@ -1932,7 +1976,7 @@
         "h": 6,
         "w": 7,
         "x": 17,
-        "y": 14
+        "y": 22
       },
       "id": 27,
       "options": {
@@ -2011,7 +2055,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 16
+        "y": 24
       },
       "id": 35,
       "maxDataPoints": 100,
@@ -2097,7 +2141,7 @@
         "h": 3,
         "w": 2,
         "x": 2,
-        "y": 17
+        "y": 25
       },
       "id": 21,
       "maxDataPoints": 100,
@@ -2174,7 +2218,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 18
+        "y": 26
       },
       "id": 37,
       "maxDataPoints": 100,
@@ -2278,7 +2322,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 20
+        "y": 28
       },
       "id": 25,
       "options": {
@@ -2501,7 +2545,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 20
+        "y": 28
       },
       "id": 14,
       "options": {
@@ -2717,7 +2761,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 20
+        "y": 28
       },
       "id": 15,
       "options": {
@@ -2874,7 +2918,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 28
+        "y": 36
       },
       "id": 11,
       "options": {
@@ -3030,7 +3074,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 28
+        "y": 36
       },
       "id": 8,
       "options": {
@@ -3185,7 +3229,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 28
+        "y": 36
       },
       "id": 9,
       "options": {
@@ -3340,7 +3384,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 36
+        "y": 44
       },
       "id": 29,
       "options": {
@@ -3443,7 +3487,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 36
+        "y": 44
       },
       "id": 10,
       "options": {
@@ -3601,7 +3645,7 @@
         "h": 6,
         "w": 6,
         "x": 12,
-        "y": 36
+        "y": 44
       },
       "id": 12,
       "options": {
@@ -3723,7 +3767,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 36
+        "y": 44
       },
       "id": 13,
       "options": {
@@ -3894,5 +3938,5 @@
   "timezone": "",
   "title": "Windows Exporter Dashboard 20230531-StarsL.cn",
   "uid": "Kdh0OoSGz",
-  "version": 1
+  "version": 3
 }
