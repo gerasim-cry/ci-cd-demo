@@ -1,43 +1,50 @@
-#  CI/CD Demo Project 
-Пример DevOps-проекта с автоматизацией процессов разработки и деплоя. 
-Включает в себя базовое веб-приложение на Flask, контейнеризацию с Docker и CI/CD через GitHub Actions. 
+## CI/CD + Monitoring Demo
 
---- 
+Здесь собрана минимальная, но полноценная инфраструктура на базе Docker, с автосборкой через GitHub Actions, экспортом метрик в Prometheus и автоматическим подключением дашборда в Grafana. Всё сделано на простой Flask-программе, чтобы сконцентрироваться именно на пайплайне и мониторинге.
 
-## Технологии 
-- **Python 3.11 + Flask** — простое API-приложение 
-- **Docker / Docker Compose** — упаковка и локальный запуск 
-- **GitHub Actions** — CI-пайплайн: проверка, сборка 
-- **act** — локальное тестирование GitHub Actions 
+## Состав проекта
 
----
+- Flask API — минимальное приложение на Python, отдаёт метрики
 
-## Локальный запуск
+- Docker — все сервисы запускаются в контейнерах
 
+- GitHub Actions — CI-пайплайн с проверкой сборки
+
+- Prometheus — забирает метрики с приложения
+
+- Grafana — визуализирует метрики, подключает дашборд автоматически
+
+## Запуск
+
+# Клонировать репозиторий
+https://github.com/gerasim-cry/ci-cd-demo.git
+cd ci-cd-demo
+
+# Запустить всё
 docker-compose up --build
+ 
+## Доступ по адресам:
 
-Открыть в браузере: http://localhost:5000
+API: http://localhost:5000
 
----
+Метрики: http://localhost:5000/metrics
 
-## CI/CD Workflow (GitHub Actions)
+Prometheus: http://localhost:9090
 
-При каждом git push в ветку main GitHub запускает CI:
-1. Клонирует репозиторий
-2. Устанавливает Python и зависимости
-3. Проверяет, что Flask-приложение запускается
-4. Собирает Docker-образ
+Grafana: http://localhost:3000 
+(логин: admin / admin)
 
-Конфигурация: .github/workflows/ci.yml
+## Что показывает дашборд
 
----
+- Количество HTTP-запросов
 
-## Локальный запуск CI (с act)
+- Доступность приложения
 
-Чтобы не ждать GitHub, можно запускать CI/CD у себя:
+- Метрики визуализируются в Grafana автоматически (подгружается из JSON)
 
-1. Установка act:
-curl -s https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
-2. Запуск:
-act --privileged
-Параметр --privileged нужен для доступа к Docker внутри CI-контейнера
+## Что здесь полезного
+
+- Настроен CI-процесс на GitHub (сборка, проверка контейнера)
+- Prometheus + Flask = экспорт собственных метрик
+- Grafana настроена через provisioning — дашборд появляется сразу
+- Протестировал права доступа и SELinux под Fedora
