@@ -14,13 +14,15 @@
 
 - Grafana — визуализирует метрики, подключает дашборд автоматически
 
+- Loki + Promtail — сбор и просмотр логов контейнеров в Grafana
+
 ## Запуск
 
 # Клонировать репозиторий
 https://github.com/gerasim-cry/ci-cd-demo.git
 cd ci-cd-demo
 
-# Запустить всё
+# Запуск контейнеров
 docker-compose up --build
  
 ## Доступ по адресам:
@@ -34,17 +36,30 @@ Prometheus: http://localhost:9090
 Grafana: http://localhost:3000 
 (логин: admin / admin)
 
+Loki API: http://localhost:3100
+
 ## Что показывает дашборд
 
 - Количество HTTP-запросов
 
-- Доступность приложения
+- Статус и доступность приложения
 
-- Метрики визуализируются в Grafana автоматически (подгружается из JSON)
+- Просмотр логов приложения (через Loki)
+
+- Лежит в папке DevOps Demo внутри Grafana
+
+JSON-файл с дашбордом: grafana/dashboards/ci-cd-dashboard.json
 
 ## Что здесь полезного
 
-- Настроен CI-процесс на GitHub (сборка, проверка контейнера)
+- Основы CI/CD с GitHub Actions
+
 - Prometheus + Flask = экспорт собственных метрик
+
 - Grafana настроена через provisioning — дашборд появляется сразу
-- Протестировал права доступа и SELinux под Fedora
+
+- Работа с volumes, правами доступа и SELinux в Fedora
+
+- Чтение логов из Docker-контейнеров через Promtail + Loki
+
+- Настройка визуализации логов через панель в Grafana
